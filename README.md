@@ -1,0 +1,2 @@
+# DaycoBot
+so discord bot :)
