@@ -1,0 +1,14 @@
+{
+  "name": "daycobot",
+  "version": "1.0.0",
+  "description": "Dayco Original Discord Bot",
+  "main": "dayco.js",
+  "scripts": {
+    "test": "node dayco.js"
+  },
+  "author": "tgasalih",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
