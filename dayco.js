@@ -91,6 +91,13 @@ client.on('guildMemberAddRemove', member => {
   logs.send(`${member} Aramızdan ayrıldı`);
   
   });
+//Zula istemeyin arkadaşlar puştmusunuz
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === 'zula') {
+    msg.delete()
+    msg.channel.send('Ağzına vurdummu hee s2ş var!!!');
+  }
+});
   
 
 
