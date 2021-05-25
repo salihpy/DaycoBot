@@ -31,6 +31,19 @@ client.on('message', msg => {
     msg.channel.send('Bu kelimeyi kullanmak yasak !!!');
   }
 });
+client.on('ready', () => {
+  console.log('I am ready!');
+});
+
+// Kullanıcı Avatar 
+client.on('message', message => {
+  // Mesajı istedik
+  if (message.content === 'avatar') {
+   // Cevap olarak avatarımızı yolladı
+    message.reply(message.author.displayAvatarURL());
+  }
+});
+
 
 
 // Youtube Channel //
