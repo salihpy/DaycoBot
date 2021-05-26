@@ -142,6 +142,47 @@ client.on('message', message => {
 });
 
 
+// Sunucudan atma işlemi
+
+client.on('message', message => {
+ 
+  if (!message.guild) return;
+
+ 
+  if (message.content.startsWith('!kick')) {
+    
+    const user = message.mentions.users.first();
+  
+    if (user) {
+     
+      const member = message.guild.member(user);
+      
+      if (member) {
+       
+        member
+          .kick('Nedeni')
+          .then(() => {
+          
+            message.reply(`Successfully kicked ${user.tag}`);
+          })
+          .catch(err => {
+         
+            message.reply('Üyeyi atamadım');
+         
+            console.error(err);
+          });
+      } else {
+        
+        message.reply("Burda böyle bir kullanıcı yok");
+      }
+     
+    } else {
+      message.reply("Atılacak kişiyi söylemedin");
+    }
+  }
+});
+
+
 
 
 
