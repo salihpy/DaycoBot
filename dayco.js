@@ -100,6 +100,47 @@ client.on('message', msg => {
 });
   
 
+client.on('message', message => {
+ 
+  if (!message.guild) return;
+
+// Mesajımızı istedik (!)
+  if (message.content.startsWith('!ban')) {
+    
+    const user = message.mentions.users.first();
+   
+    if (user) {
+    
+      const member = message.guild.member(user);
+    
+      if (member) {
+     
+        member
+          .ban({
+            reason: 'Kötü',
+          })
+          .then(() => {
+          // Kişi banlandıktan sonra vereceği mesaj
+            message.reply('${user.tag} Kişisi başarıyla banlandı');
+          })
+        // Hata durumunda Bize vereceği bilgi
+          .catch(err => {
+           
+            message.reply('Yasaklama işlemi başarısız');
+           
+            console.error(err);
+          });
+      } else {
+       
+        message.reply("Bölye bir kullanıcı bulunamadı");
+      }
+    } else {
+   
+      message.reply("Yasaklanacak kullanıcıyı söylemedin!");
+    }
+  }
+});
+
 
 
 
